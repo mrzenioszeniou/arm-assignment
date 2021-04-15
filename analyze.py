@@ -89,12 +89,6 @@ two_ghz = per_build[1][TIME].mean()
 print("CPU Frequency Impact:", two_ghz / one_ghz, "(", one_ghz, "vs", two_ghz, ")")
 
 
-# dev0 = data[data[DEVICE] == "Device_0"].assign(
-#     mem_per_thread=lambda r: r[MEMORY] / r[THREADS]
-# )
-# dev0.rename(columns={"mem_per_thread": "Peak Mem. per Thread (MB)"}, inplace=True)
-
-
 # Memory(MB) per Build
 plt.figure()
 plt.title("Peak Memory Consumption (MB) per Build (5 Threads)")
@@ -119,7 +113,7 @@ for series in per_threads:
     series.index = series[THREADS]
     series[TIME].plot(ylabel=TIME, xticks=series[THREADS], ax=axes[0])
 
-axes[1].set_title("Memory Consumption(MB) per # of Threads")
+axes[1].set_title("Peak Memory Consumption(MB) per # of Threads")
 for series in per_threads:
     series.index = series[THREADS]
     series[MEMORY].plot(ylabel=MEMORY, xticks=series[THREADS], ax=axes[1])
@@ -160,7 +154,7 @@ dev0[TIME].plot(ylabel=TIME, xticks=series[THREADS], ax=axes[0])
 dev1[TIME].plot(ylabel=TIME, xticks=series[THREADS], ax=axes[0])
 
 
-axes[1].set_title("Memory Consumption(MB) per # of Threads")
+axes[1].set_title("Peak Memory Consumption(MB) per # of Threads")
 dev0[MEMORY].plot(ylabel=MEMORY, xticks=series[THREADS], ax=axes[1])
 dev1[MEMORY].plot(ylabel=MEMORY, xticks=series[THREADS], ax=axes[1])
 
