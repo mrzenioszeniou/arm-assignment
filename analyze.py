@@ -20,11 +20,11 @@ LEGEND = ["AlexNet @ 1GHz", "AlexNet @ 2GHz", "MobileNet @ 1GHz"]
 
 
 ## Load data
-test_results = pd.DataFrame(pd.read_pickle("TestResults.pickle"))
+test_results = pd.DataFrame(pd.read_pickle("data/TestResults.pickle"))
 test_results.index = test_results[TEST_ID]
 del test_results[TEST_ID]
 
-test_info = pd.read_csv("Test Info.csv")
+test_info = pd.read_csv("data/Test Info.csv")
 test_info.index = test_info[TEST_ID]
 del test_info[TEST_ID]
 
